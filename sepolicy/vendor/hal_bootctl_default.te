@@ -1,0 +1,4 @@
+# The boot control HAL stats every partition while walking the table, oem
+# among them.  Labelling it is not enough on its own - nothing grants the
+# HAL access to the new type.
+allow hal_bootctl_default oem_block_device:blk_file getattr;

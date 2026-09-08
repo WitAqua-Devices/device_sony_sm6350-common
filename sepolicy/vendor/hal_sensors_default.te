@@ -1,0 +1,2 @@
+# The sensors HAL publishes what it found under vendor.sensors.
+set_prop(hal_sensors_default, vendor_sensors_prop)

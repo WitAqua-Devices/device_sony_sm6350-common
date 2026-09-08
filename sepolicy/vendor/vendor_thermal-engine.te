@@ -1,0 +1,2 @@
+# Same empty /oem mount point as the secure element HAL walks.
+dontaudit vendor_thermal-engine oemfs:dir search;

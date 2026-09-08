@@ -1,0 +1,4 @@
+# sscrpcd reads /sys/devices/platform/HardwareInfo/stage_id to tell which
+# hardware revision it is running on.
+allow vendor_sensors sysfs_hardware_info:dir search;
+allow vendor_sensors sysfs_hardware_info:file r_file_perms;

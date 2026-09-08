@@ -1,0 +1,4 @@
+# The Egis HAL registers what it found through get_hardware_info_data(), the
+# same way the other Sony drivers on this device do.
+allow hal_fingerprint_default sysfs_hardware_info:dir search;
+allow hal_fingerprint_default sysfs_hardware_info:file r_file_perms;

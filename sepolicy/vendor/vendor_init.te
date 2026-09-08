@@ -1,0 +1,5 @@
+# Properties vendor.prop sets that have a vendor type but no rule letting
+# vendor_init write them.
+set_prop(vendor_init, vendor_display_always_on_prop)
+set_prop(vendor_init, vendor_hal_superstamina_prop)
+set_prop(vendor_init, vendor_mm_parser_prop)

@@ -1,0 +1,5 @@
+# Huaqin's hardware_info platform device, read by sscrpcd.
+type sysfs_hardware_info, fs_type, sysfs_type;
+
+# The stock oem partition.  Not mounted, but the boot control HAL stats it.
+type oem_block_device, dev_type;

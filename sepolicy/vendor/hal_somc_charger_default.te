@@ -1,0 +1,10 @@
+# vendor.semc.hardware.charger@1.0-service, which publishes the ICharger
+# hwservice hardware/sony/sepolicy declares.  Sony's own tree has no domain
+# for it, so give it one here rather than leave it running as init.
+type hal_somc_charger_default, domain;
+type hal_somc_charger_default_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_somc_charger_default)
+hwbinder_use(hal_somc_charger_default)
+get_prop(hal_somc_charger_default, hwservicemanager_prop)
+add_hwservice(hal_somc_charger_default, hal_somc_charger_hwservice)

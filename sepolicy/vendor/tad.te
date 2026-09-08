@@ -1,0 +1,5 @@
+# init.sony-platform.rc runs /vendor/bin/wait4tad with "exec u:r:tad:s0", so
+# the wrapper shares the daemon's domain.  It connects to the daemon's socket
+# to wait for it to come up, and connect(2) needs write on the sock_file.
+# hardware/sony/sepolicy only covers the daemon's side of that socket.
+allow tad tad_socket:sock_file write;

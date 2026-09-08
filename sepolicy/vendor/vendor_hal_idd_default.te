@@ -1,0 +1,2 @@
+# The IDD HAL takes over the descriptors iddd opens for it.
+allow vendor_hal_idd_default idd:fd use;

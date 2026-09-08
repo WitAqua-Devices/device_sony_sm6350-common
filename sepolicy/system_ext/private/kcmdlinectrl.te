@@ -1,0 +1,2 @@
+# Same walk as misctrl, for the bootconfig it edits.
+allow kcmdlinectrl sysfs_dt_firmware_android:dir r_dir_perms;

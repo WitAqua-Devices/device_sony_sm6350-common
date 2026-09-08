@@ -1,0 +1,4 @@
+# misctrl reads the fstab out of the device tree to find the misc partition.
+# The node is genfscon'd sysfs_dt_firmware_android, and the core policy grants
+# the file but not the directory it has to walk.
+allow misctrl sysfs_dt_firmware_android:dir r_dir_perms;

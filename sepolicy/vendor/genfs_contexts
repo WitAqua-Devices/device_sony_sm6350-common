@@ -1,0 +1,9 @@
+# Huaqin's hardware_info driver, which the kernel registers as a platform
+# device.  sscrpcd reads stage_id out of it to tell the hardware revision.
+genfscon sysfs /devices/platform/HardwareInfo    u:object_r:sysfs_hardware_info:s0
+
+# system_suspend follows /sys/class/wakeup to the nodes under the device,
+# which the core policy leaves as plain sysfs.  Label the wakeup directory
+# rather than its children, whose numbering changes from boot to boot.
+genfscon sysfs /devices/platform/soc/880000.i2c/i2c-0/0-0028/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/988000.i2c/i2c-1/1-0048/wakeup    u:object_r:sysfs_wakeup:s0

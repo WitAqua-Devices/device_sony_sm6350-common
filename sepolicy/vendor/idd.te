@@ -1,0 +1,5 @@
+# idd-logreader reads the log buffers.  hardware/sony only dontaudits the
+# denial, so the daemon retries in a tight loop and floods logcat.
+# read_logd() cannot be used here: it also grants logcat_exec:file execute,
+# which a vendor domain may not have.
+unix_socket_connect(idd, logdr, logd)

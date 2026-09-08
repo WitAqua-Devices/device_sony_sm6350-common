@@ -1,0 +1,8 @@
+# The stock @1.2 service publishes NXP's INxpEse itself.  hardware/sony grants
+# the hwservice type to hal_nfc_default instead, and add_hwservice()'s
+# neverallow would contradict that, so this is written out.
+allow hal_secure_element_default nxpese_hwservice:hwservice_manager { add find };
+
+# /oem is not mounted, but the mount point is still labelled and the HAL walks
+# it looking for a configuration that is not there.
+dontaudit hal_secure_element_default oemfs:dir search;
