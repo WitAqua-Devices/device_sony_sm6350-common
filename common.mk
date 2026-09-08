@@ -10,6 +10,9 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 BOARD_SHIPPING_API_LEVEL := 30
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 
+# Device info
+PROCESSOR_INFO := Qualcomm Snapdragon 690 5G
+
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
