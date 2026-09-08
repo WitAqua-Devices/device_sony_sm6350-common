@@ -66,6 +66,15 @@ prebuilt_etc {
     vendor: true,
 }
 
+// Starts the 4.0 keymaster HAL.  The stock image has no rc for it, see the
+// comment in etc/android.hardware.keymaster@4.0-service-qti.rc.
+prebuilt_etc {
+    name: "android.hardware.keymaster@4.0-service-qti.rc",
+    src: "etc/android.hardware.keymaster@4.0-service-qti.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
 // QTI's RIL startup script, which init.qcom.rc runs and the stock image does
 // not ship as a blob.  It swaps AOSP's vendor.ril-daemon, which cannot talk
 // to this modem, for the vendor.qcrild blobs.

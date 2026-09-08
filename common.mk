@@ -207,6 +207,7 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     init.qti.ufs.rc \
     init.qcom.factory.rc \
+    android.hardware.keymaster@4.0-service-qti.rc \
     init.sony-platform.rc \
     ueventd.qcom.rc
 
