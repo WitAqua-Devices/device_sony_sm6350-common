@@ -240,6 +240,9 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
 
+# Osaifu-Keitai
+$(call inherit-product, packages/apps/FelicaService/device.mk)
+
 # Vibrator
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
