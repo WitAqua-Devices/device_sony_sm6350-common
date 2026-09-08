@@ -1,0 +1,17 @@
+<compatibility-matrix version="2.0" type="framework">
+    <!--
+        Served by the stock android.hardware.secure_element@1.2-service, which
+        registers NXP's own eSE interface next to ISecureElement.  Sony's
+        hardware/sony/vintf/device_framework_matrix.xml lists vendor.nxp.nxpnfc
+        but not this one, so checkvintf rejects the entry manifest.xml carries
+        over from the stock image.
+    -->
+    <hal format="hidl" optional="true">
+        <name>vendor.nxp.nxpese</name>
+        <version>1.0</version>
+        <interface>
+            <name>INxpEse</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>

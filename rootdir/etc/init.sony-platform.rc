@@ -1,0 +1,18 @@
+# Copyright (C) 2019 Sony Mobile Communications Inc.
+#
+# Cut down from the stock odm/etc/init/init.sony-platform.rc.
+
+on init
+    # SONY: Start the TrimArea Daemon. It must be started before fota-ua
+    wait /dev/block/bootdevice/by-name/TA
+    class_start trimarea
+    exec u:r:tad:s0 system -- /vendor/bin/wait4tad
+
+# SONY: TrimArea Daemon
+# Last 2 args: start block(blk size 128k), number of blocks(partitionsize(kb)/128(kb))
+service tad /vendor/bin/tad /dev/block/bootdevice/by-name/TA 0,16
+    user oem_2997
+    group oem_2997 root
+    socket tad stream 0660 system oem_2993
+    class trimarea
+    seclabel u:r:tad:s0

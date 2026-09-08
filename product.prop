@@ -1,0 +1,7 @@
+# eBPF
+#
+# netbpfload wants 5.4 or newer and exits otherwise, and bpfloader has
+# reboot_on_failure, so the device reboots mid-boot without this.  It has to
+# stay below 5.10: only that path sanitizes the BTF into something a 4.19
+# kernel accepts.
+ro.bpf.kver_override=5.4.0

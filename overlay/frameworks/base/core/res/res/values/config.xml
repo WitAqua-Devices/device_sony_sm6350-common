@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- AOSP defaults this to false, which leaves DisplayPolicy's
+         mHasNavigationBar unset so SystemUI never creates a NavigationBar for
+         display 0.  The result is
+           EdgeBackGestureHandler:
+             mIsEnabled=false
+             mIsAttached=false
+             mIsGestureHandlingEnabled=false
+         and only the back edge swipe stops working.  Home and recents keep
+         working because quickstep picks them up through its own input
+         consumer, which makes this look like a gesture bug rather than a
+         missing navigation bar. -->
+    <bool name="config_showNavigationBar">true</bool>
+</resources>

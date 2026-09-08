@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "hardware_sony",
+    "target_path": "hardware/sony"
+  },
+  {
+    "repository": "kernel_sony_sm6350",
+    "target_path": "kernel/sony/sm6350"
+  }
+]

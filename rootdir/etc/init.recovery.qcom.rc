@@ -1,0 +1,21 @@
+# Recovery init script; androidboot.hardware=qcom picks this one.
+#
+# The bootdevice symlink is not created for us, so recovery complains that
+# /dev/block/bootdevice/by-name/misc does not exist without the rule below.
+# sys.usb.configfs has to be set as well, or init never sets up the configfs
+# USB gadget, functionfs is never mounted and minadbd cannot open
+# /dev/usb-ffs/adb/ep0.
+
+on early-init
+    write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
+
+on init
+    setprop sys.usb.configfs 1
+
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+    write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
+
+on fs
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
