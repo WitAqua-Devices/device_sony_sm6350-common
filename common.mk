@@ -173,7 +173,8 @@ PRODUCT_BOOT_JARS += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio-service.compat
+    android.hardware.radio-service.compat \
+    init.class_main.sh
 
 # OMX
 PRODUCT_PACKAGES += \

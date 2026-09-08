@@ -66,3 +66,12 @@ prebuilt_etc {
     vendor: true,
 }
 
+// QTI's RIL startup script, which init.qcom.rc runs and the stock image does
+// not ship as a blob.  It swaps AOSP's vendor.ril-daemon, which cannot talk
+// to this modem, for the vendor.qcrild blobs.
+sh_binary {
+    name: "init.class_main.sh",
+    src: "bin/init.class_main.sh",
+    vendor: true,
+}
+
