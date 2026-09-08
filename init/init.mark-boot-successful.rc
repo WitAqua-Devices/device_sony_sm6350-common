@@ -1,0 +1,5 @@
+# Nothing on this device calls markBootSuccessful(), so run update_verifier
+# once the boot is known good.  exec_start, not start: the AOSP service is not
+# oneshot and init would respawn it on every exit.
+on property:sys.boot_completed=1
+    exec_start update_verifier

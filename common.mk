@@ -46,6 +46,9 @@ PRODUCT_PACKAGES += \
     update_engine_sideload \
     update_verifier
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init/init.mark-boot-successful.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.mark-boot-successful.rc
+
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
