@@ -84,3 +84,21 @@ sh_binary {
     vendor: true,
 }
 
+// NFC.  Loads the sn1x0 and p73 kernel modules and creates /data/vendor/nfc.
+// From the stock vendor/etc/init/init.nfc.rc.
+prebuilt_etc {
+    name: "init.nfc.rc",
+    src: "etc/init.nfc.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+// Service definition for the stock NFC HAL blob, which is installed with a
+// .sony suffix so the exec path matches.  The file name carries the suffix
+// too, or it collides with the rc hardware/nxp/nfc/pn8x installs.
+prebuilt_etc {
+    name: "android.hardware.nfc@1.2-service.sony.rc",
+    src: "etc/android.hardware.nfc@1.2-service.sony.rc",
+    sub_dir: "init",
+    vendor: true,
+}

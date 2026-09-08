@@ -1,0 +1,8 @@
+# The stock vendor/etc/init/android.hardware.nfc@1.2-service.rc.
+# hardware/nxp/nfc defines a module by the same name, so the blob is
+# installed with a .sony suffix - see proprietary-files.txt - and the exec
+# path here has to match.
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service.sony
+    class early_hal
+    user nfc
+    group nfc oem_2993

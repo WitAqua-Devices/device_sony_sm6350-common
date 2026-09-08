@@ -208,6 +208,8 @@ PRODUCT_PACKAGES += \
     init.qti.ufs.rc \
     init.qcom.factory.rc \
     android.hardware.keymaster@4.0-service-qti.rc \
+    android.hardware.nfc@1.2-service.sony.rc \
+    init.nfc.rc \
     init.sony-platform.rc \
     ueventd.qcom.rc
 
@@ -230,6 +232,13 @@ PRODUCT_PACKAGES += \
 # Vendor service manager
 PRODUCT_PACKAGES += \
     vndservicemanager
+
+# NFC / eSE
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    libnfc_shim \
+    SecureElement \
+    Tag
 
 # Vibrator
 PRODUCT_PACKAGES += \

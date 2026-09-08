@@ -1,0 +1,13 @@
+//
+// Copyright (C) 2026 The WitAqua Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libnfc_shim",
+    // ese_spi_nxp.so, the only consumer, is 64 bit only.
+    compile_multilib: "64",
+    vendor: true,
+    srcs: ["Trim.cpp"],
+    shared_libs: ["libbase"],
+}
