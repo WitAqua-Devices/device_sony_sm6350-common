@@ -248,6 +248,11 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
 
+# Not extracted: the stock file's listen mode route ids only make sense to
+# Sony's own stack. See the header of the file for what had to change.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
 # Osaifu-Keitai
 $(call inherit-product, packages/apps/FelicaService/device.mk)
 

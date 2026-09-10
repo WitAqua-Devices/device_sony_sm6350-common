@@ -879,7 +879,6 @@ vendor/etc/libese-nxp.conf
 vendor/etc/libnfc-nci.conf
 vendor/etc/libnfc-nxp-pnscr.conf
 vendor/etc/libnfc-nxp-pnscr_XTAL.conf
-vendor/etc/libnfc-nxp.conf
 vendor/etc/libnfc-nxp_RF.conf
 vendor/etc/sn100u_pnx_ese_fabkey.pnscr
 # NFCC firmware.  The HAL fails its startup download without it.
