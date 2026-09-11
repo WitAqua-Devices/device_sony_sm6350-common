@@ -1,0 +1,3 @@
+# hardware/sony maps org.lineageos.settings.device to this domain; FelicaParts
+# is a second settings app in the same mould and needs the same treatment.
+user=system isPrivApp=true seinfo=platform name=org.lineageos.settings.felica domain=devicesetting_app type=app_data_file levelFrom=all

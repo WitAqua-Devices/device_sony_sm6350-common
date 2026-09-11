@@ -1,0 +1,17 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference app:key="felicaModel"
+                    app:iconSpaceReserved="false"
+                    app:title="@string/felica_model_title"
+                    app:dialogTitle="@string/felica_model_title"
+                    app:useSimpleSummaryProvider="true"
+    />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="felicaModelFooter"
+        android:title="@string/felica_model_footer"
+        android:selectable="false" />
+
+</PreferenceScreen>

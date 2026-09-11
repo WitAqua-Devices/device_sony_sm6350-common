@@ -1,0 +1,21 @@
+#
+# Copyright (C) 2026 The WitAqua Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# The chip answers to the configuration it was formatted against, which is not
+# always the one this model ships - a handset whose secure element was
+# provisioned elsewhere needs that set instead. init.sony.rc binds by model;
+# this binds whatever XperiaParts was told to use on top of it.
+#
+# Lives on system_ext because the property has to be writable by the settings
+# app: /vendor and /odm scripts expand ${} through vendor_init, which cannot
+# read a system property, and a vendor property cannot be set from an app at
+# all. init parses this one itself, so it can read either.
+#
+# The name is shared with every other device that ships this, which is why it
+# carries no vendor segment: the same setprop works on joan_jp, where a model
+# is spelled as an LG SKU instead.
+on property:persist.felica.model=*
+    mount none /vendor/etc/felica_${persist.felica.model} /vendor/etc/felica bind

@@ -1,0 +1,7 @@
+<resources>
+    <string name="felica_setting_header">おサイフケータイ</string>
+    <string name="felica_setting_summary">セキュアエレメントが名乗る機種を選びます</string>
+    <string name="felica_model_title">設定</string>
+    <string name="felica_model_automatic">自動</string>
+    <string name="felica_model_footer">セキュアエレメントは、フォーマットされたときの設定にしか応答しません。これは端末の出荷時の機種と一致しないことがあります。おサイフケータイの初期設定が通らない場合を除き、自動のままにしてください。変更後は再起動が必要です。</string>
+</resources>

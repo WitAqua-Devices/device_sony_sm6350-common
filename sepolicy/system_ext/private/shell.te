@@ -1,0 +1,2 @@
+# So the override can be checked from adb without rooting the device.
+get_prop(shell, felica_model_prop)

@@ -18,6 +18,16 @@ prebuilt_etc {
     vendor: true,
 }
 
+// On system_ext: the settings app has to be able to write the property, and a
+// /vendor or /odm script expands ${} through vendor_init, which cannot read a
+// system property. init parses this one itself, so it reaches either side.
+prebuilt_etc {
+    name: "init.felica_model.rc",
+    src: "etc/init.felica_model.rc",
+    sub_dir: "init",
+    system_ext_specific: true,
+}
+
 prebuilt_etc {
     name: "fstab.default",
     src: "etc/fstab.default",

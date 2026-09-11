@@ -1,0 +1,2 @@
+# FelicaParts is the only thing that writes the model override.
+set_prop(devicesetting_app, felica_model_prop)

@@ -262,6 +262,13 @@ PRODUCT_COPY_FILES += \
 # Osaifu-Keitai
 $(call inherit-product, packages/apps/FelicaService/device.mk)
 
+# The secure element only answers to the configuration it was formatted
+# against, and that is not always the one the handset shipped as, so let the
+# model be picked by hand too.
+PRODUCT_PACKAGES += \
+    FelicaParts \
+    init.felica_model.rc
+
 # Vibrator
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
