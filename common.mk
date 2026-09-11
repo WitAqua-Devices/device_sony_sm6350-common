@@ -40,6 +40,11 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set_bool,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 
+# One build covers every japanese SKU, so init reads the model out of LTALabel.
+# See libinit/ and rootdir/etc/init.sony.rc.
+SONY_VENDOR_INIT_LIB ?= //$(LOCAL_PATH):libinit_sm6350
+$(call soong_config_set,libinit,vendor_init_lib,$(SONY_VENDOR_INIT_LIB))
+
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
@@ -218,6 +223,7 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0-service-qti.rc \
     android.hardware.nfc@1.2-service.sony.rc \
     init.nfc.rc \
+    init.sony.rc \
     init.sony-platform.rc \
     ueventd.qcom.rc
 

@@ -1,0 +1,25 @@
+//
+// Copyright (C) 2026 The WitAqua Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// LTALabel model detection, shared with any per-device libinits.
+cc_library_static {
+    name: "libinit_sku_sm6350",
+    srcs: ["sku.cpp"],
+    recovery_available: true,
+    header_libs: ["libbase_headers"],
+    export_include_dirs: ["."],
+    visibility: [
+        "//device/sony/sm6350-common:__subpackages__",
+        "//device/sony/pdx213:__subpackages__",
+    ],
+}
+
+cc_library_static {
+    name: "libinit_sm6350",
+    srcs: ["init_sm6350.cpp"],
+    recovery_available: true,
+    header_libs: ["libbase_headers"],
+    whole_static_libs: ["libinit_sku_sm6350"],
+}

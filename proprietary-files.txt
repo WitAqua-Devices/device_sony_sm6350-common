@@ -1404,10 +1404,55 @@ product/app/MobileFeliCaMenuMainApp/MobileFeliCaMenuMainApp.apk;PRESIGNED
 product/app/MobileFeliCaSettingApp/MobileFeliCaSettingApp.apk;PRESIGNED
 product/app/MobileFeliCaWebPluginBoot/MobileFeliCaWebPluginBoot.apk;PRESIGNED
 
-# ("SOG01"), so that one is carrier specific.
+# FeliCa configuration.  This is the default set and the mount point that
+# init.sony.rc binds the matching model over; it is the XQ-BT44 one, which is
+# also what a handset whose LTALabel says nothing keeps.
 vendor/etc/felica/common.cfg
 vendor/etc/felica/mfm.cfg
 vendor/etc/felica/mfs.cfg
+
+# One build covers every japanese SKU, but common.cfg differs on all four and
+# the chip answers to the one it was formatted against, so each needs its own
+# copy.  They all live at the same path in their own firmware, hence src:dst,
+# with TRYSRCFIRST: extract-utils looks for dst before src, and the
+# felica_<model> path exists in no dump at all (source.py:72).
+#
+# The sections below come from a different dump than the rest of this file, so
+# extract them one at a time - passing -s keeps extract-utils from wiping the
+# vendor directory between runs (module.py: cleanup() only runs when no section
+# is given):
+#
+#   ./extract-files.py ROM/XQBT44/extracted
+#   for m in SO-52B:SO52B SOG04:SOG04 A102SO:A102SO; do
+#       rm -rf ../../../vendor/sony/sm6350-common/proprietary/vendor/etc/felica_${m%%:*}
+#       ./extract-files.py -s "FeliCa configuration - ${m%%:*}" ROM/${m##*:}/extracted
+#   done
+#
+# The rm matters.  The first pass fills every felica_<model> from the XQ-BT44
+# dump - src is the same path in all of them - and leaves the copies read-only,
+# the mode they have in the dump.  shutil.copy then fails on the second pass and
+# source.py swallows the error inside a suppress(Exception), so it is reported
+# as "file not found" rather than a permission problem.
+
+# FeliCa configuration - XQ-BT44
+vendor/etc/felica/common.cfg:vendor/etc/felica_XQ-BT44/common.cfg;TRYSRCFIRST
+vendor/etc/felica/mfm.cfg:vendor/etc/felica_XQ-BT44/mfm.cfg;TRYSRCFIRST
+vendor/etc/felica/mfs.cfg:vendor/etc/felica_XQ-BT44/mfs.cfg;TRYSRCFIRST
+
+# FeliCa configuration - SO-52B
+vendor/etc/felica/common.cfg:vendor/etc/felica_SO-52B/common.cfg;TRYSRCFIRST
+vendor/etc/felica/mfm.cfg:vendor/etc/felica_SO-52B/mfm.cfg;TRYSRCFIRST
+vendor/etc/felica/mfs.cfg:vendor/etc/felica_SO-52B/mfs.cfg;TRYSRCFIRST
+
+# FeliCa configuration - SOG04
+vendor/etc/felica/common.cfg:vendor/etc/felica_SOG04/common.cfg;TRYSRCFIRST
+vendor/etc/felica/mfm.cfg:vendor/etc/felica_SOG04/mfm.cfg;TRYSRCFIRST
+vendor/etc/felica/mfs.cfg:vendor/etc/felica_SOG04/mfs.cfg;TRYSRCFIRST
+
+# FeliCa configuration - A102SO
+vendor/etc/felica/common.cfg:vendor/etc/felica_A102SO/common.cfg;TRYSRCFIRST
+vendor/etc/felica/mfm.cfg:vendor/etc/felica_A102SO/mfm.cfg;TRYSRCFIRST
+vendor/etc/felica/mfs.cfg:vendor/etc/felica_A102SO/mfs.cfg;TRYSRCFIRST
 
 # ACDBs
 vendor/etc/acdbdata/nn_ns_models/fai__2.0.0_0.1__3.0.0_0.0__eai_1.00.pmd

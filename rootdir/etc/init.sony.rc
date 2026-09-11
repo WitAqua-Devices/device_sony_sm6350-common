@@ -1,0 +1,19 @@
+#
+# Copyright (C) 2026 The WitAqua Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+on early-init
+    wait /dev/block/by-name/LTALabel
+
+    # The FeliCa configuration is per model and every SKU shares one build, so
+    # bind the matching set over the canonical one. common.cfg differs on all
+    # four handsets and the chip answers to the one it was formatted against,
+    # so getting it wrong breaks the initial setup.
+    #
+    # Has to be here rather than any later: a bind mount no longer reaches file
+    # descriptors that are already open. libinit publishes the property while
+    # init loads its properties, which is before this runs. Models without a
+    # copy of their own keep what is there; init ignores ENOENT.
+    mount none /vendor/etc/felica_${ro.vendor.ltalabel.model} /vendor/etc/felica bind
