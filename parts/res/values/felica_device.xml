@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The WitAqua Project
+
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Where the sets live. -->
+    <string name="felica_config_dir" translatable="false">/vendor/etc</string>
+
+    <!-- The sets are already named after the model - SO-51A, XQ-AT42 - so
+         there is nothing to read them as. "<directory suffix>|<what to show>". -->
+    <string-array name="felica_model_labels" translatable="false" />
+</resources>

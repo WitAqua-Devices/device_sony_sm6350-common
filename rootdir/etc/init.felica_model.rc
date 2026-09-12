@@ -7,7 +7,7 @@
 # The chip answers to the configuration it was formatted against, which is not
 # always the one this model ships - a handset whose secure element was
 # provisioned elsewhere needs that set instead. init.sony.rc binds by model;
-# this binds whatever XperiaParts was told to use on top of it.
+# this binds whatever FelicaParts was told to use on top of it.
 #
 # Lives on system_ext because the property has to be writable by the settings
 # app: /vendor and /odm scripts expand ${} through vendor_init, which cannot
@@ -17,5 +17,20 @@
 # The name is shared with every other device that ships this, which is why it
 # carries no vendor segment: the same setprop works on joan_jp, where a model
 # is spelled as an LG SKU instead.
+#
+# Binding over a path that is already a bind mount propagates the new mount to
+# the peers of the one underneath, and the peer path is that mount's root - the
+# set init.sony.rc bound at early-init. So picking another model here also
+# leaves a copy of it on top of the model's own directory:
+#
+#   /vendor/etc/felica_SO-52B  -> /vendor/etc/felica            (init.sony.rc)
+#   /vendor/etc/felica_SOG04   -> /vendor/etc/felica            (this)
+#   /vendor/etc/felica_SOG04   -> /vendor/etc/felica_SO-52B     (propagated)
+#
+# Marking either mount private would stop it, and would also stop it reaching
+# the namespace the apps live in, which is the whole point of the bind. It only
+# matters when the choice is changed twice without rebooting in between, which
+# is what the reboot the settings screen asks for avoids: at boot the source
+# directories are untouched, so whichever set is picked binds the real one.
 on property:persist.felica.model=*
     mount none /vendor/etc/felica_${persist.felica.model} /vendor/etc/felica bind

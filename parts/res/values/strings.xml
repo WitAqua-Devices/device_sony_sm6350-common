@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">FelicaParts</string>
 
-    <!-- FeliCa related settings -->
     <string name="felica_setting_header">Osaifu-Keitai</string>
     <string name="felica_setting_summary">Choose which handset the secure element answers as</string>
     <string name="felica_model_title">Configuration</string>
     <string name="felica_model_automatic">Automatic</string>
+    <string name="felica_model_failed">Could not change the configuration</string>
     <string name="felica_model_footer">The secure element only answers to the configuration it was formatted against, which is not always the one this handset shipped with. Leave this on automatic unless Osaifu-Keitai refuses to set up. Reboot after changing it.</string>
 </resources>
