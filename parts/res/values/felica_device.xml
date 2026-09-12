@@ -8,7 +8,7 @@
     <!-- Where the sets live. -->
     <string name="felica_config_dir" translatable="false">/vendor/etc</string>
 
-    <!-- The sets are already named after the model - SO-51A, XQ-AT42 - so
+    <!-- The sets are already named after the model - SO-52B, XQ-BT44 - so
          there is nothing to read them as. "<directory suffix>|<what to show>". -->
     <string-array name="felica_model_labels" translatable="false" />
 </resources>
