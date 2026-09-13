@@ -64,6 +64,13 @@ ro.vendor.bluetooth.wipower=false
 # Camera
 ro.camera.notify_nfc=1
 
+# Chipset.  Settings prints these two verbatim, so name the vendor the way it
+# names itself rather than keeping stock's "QTI".  The model is not in the
+# stock image at all: it only became mandatory for handsets launching on
+# Android 12, and this one shipped with 11.
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SM6350
+
 # Dalvik, at the stock values
 dalvik.vm.heapgrowthlimit=256m
 dalvik.vm.heapmaxfree=32m
